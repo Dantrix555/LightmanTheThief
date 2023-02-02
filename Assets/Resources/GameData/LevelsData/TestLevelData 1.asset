@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f660938cbe18c8b4da4a9363d79ba0a5, type: 3}
+  m_Name: TestLevelData 1
+  m_EditorClassIdentifier: 
+  timeToScapeInSeconds: 100
+  moneyPerSecondRemaining: 1
+  playerInitialPosition: {x: 0, y: -4.5, z: 0}
+  playerStatsData: {fileID: 11400000, guid: 64ca2a70b95dfad4e9b3be14748aefa3, type: 2}
+  levelPrefab: {fileID: 8928781678842592443, guid: 17d6f05380bc4d14f90cf1490e5b90d1, type: 3}

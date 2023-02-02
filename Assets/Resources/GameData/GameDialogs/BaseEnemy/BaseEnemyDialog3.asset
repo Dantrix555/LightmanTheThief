@@ -1,0 +1,54 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a2230bb5cf0f404993a7eb01602cb87, type: 3}
+  m_Name: BaseEnemyDialog3
+  m_EditorClassIdentifier: 
+  dialogIsATrap: 0
+  dialogLines:
+  - isCharacterDialog: 1
+    characteDialogSprite: {fileID: -2582850678860025792, guid: 5c6e99b9254852e4a9c194f3532d7353, type: 3}
+    dialogLine: Hi dude, calm down, I'm here to do businesses with you
+    affirmativeResponseDialogLine: 
+    negativeResponseDialogLine: 
+    closeOnAffirmative: 0
+  - isCharacterDialog: 0
+    characteDialogSprite: {fileID: 5085595615374694967, guid: 5c6e99b9254852e4a9c194f3532d7353, type: 3}
+    dialogLine: What kind of business can make someone like you with me
+    affirmativeResponseDialogLine: 
+    negativeResponseDialogLine: 
+    closeOnAffirmative: 0
+  - isCharacterDialog: 1
+    characteDialogSprite: {fileID: -2582850678860025792, guid: 5c6e99b9254852e4a9c194f3532d7353, type: 3}
+    dialogLine: Don't act surprised, I'll give you 50 bucks and act like nothing
+      has happened
+    affirmativeResponseDialogLine: 
+    negativeResponseDialogLine: 
+    closeOnAffirmative: 0
+  - isCharacterDialog: 0
+    characteDialogSprite: {fileID: 5085595615374694967, guid: 5c6e99b9254852e4a9c194f3532d7353, type: 3}
+    dialogLine: I don't know Rick, it looks fake!
+    affirmativeResponseDialogLine: 
+    negativeResponseDialogLine: 
+    closeOnAffirmative: 0
+  - isCharacterDialog: 1
+    characteDialogSprite: {fileID: -2582850678860025792, guid: 5c6e99b9254852e4a9c194f3532d7353, type: 3}
+    dialogLine: You think I'm your sugar mommy? $75 for you my son
+    affirmativeResponseDialogLine: 
+    negativeResponseDialogLine: 
+    closeOnAffirmative: 0
+  - isCharacterDialog: 0
+    characteDialogSprite: {fileID: 5085595615374694967, guid: 5c6e99b9254852e4a9c194f3532d7353, type: 3}
+    dialogLine: You're the meanest "Sugar" I ever knew but at least you pay better
+      than our boss
+    affirmativeResponseDialogLine: 
+    negativeResponseDialogLine: 
+    closeOnAffirmative: 0

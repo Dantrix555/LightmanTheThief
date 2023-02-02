@@ -1,0 +1,55 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags: []
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - Wall
+  - Water
+  - UI
+  - InteractableItem
+  - Player
+  - Enemy
+  - LampPost
+  - LightAttack
+  - WhipAttack
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Background
+    uniqueID: 2585728919
+    locked: 0
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: Item
+    uniqueID: 2736348437
+    locked: 0
+  - name: Character
+    uniqueID: 3139434929
+    locked: 0
+  - name: Canvas
+    uniqueID: 3548687135
+    locked: 0

@@ -12,6 +12,9 @@ public class PlayerController : BaseCharacter, MainGameInputs.IPlayerMapActions
 
     [SerializeField]
     private PlayerWhipController playerWhip;
+    
+    [SerializeField] [Range(1, 2)]
+    private float coolDownMaxTime;
 
     [HideInInspector]
     public bool canUseFlashBombs;
@@ -19,6 +22,8 @@ public class PlayerController : BaseCharacter, MainGameInputs.IPlayerMapActions
     private MainGameInputs playerInputs;
     private Vector2 movingDirection;
     private PlayerStats playerStats;
+
+    private float actualFlashBombCooldown;
 
     private Vector3 nearLightPostPosition;
 
@@ -87,10 +92,10 @@ public class PlayerController : BaseCharacter, MainGameInputs.IPlayerMapActions
     public void OnUseFlashBomb(InputAction.CallbackContext context)
     {
         if(context.phase == InputActionPhase.Performed && playerStats.FlashShots > 0 && canUseFlashBombs
-            && LightManThiefSingleton.GameplayIsRunning)
+            && LightManThiefSingleton.GameplayIsRunning && actualFlashBombCooldown <= 0)
         {
             InGameController.Instance.SetFlashLightAttack(nearLightPostPosition);
-            canUseFlashBombs = false;
+            StartCoroutine(SetFlashBombCooldown());
         }
     }
 
@@ -98,6 +103,20 @@ public class PlayerController : BaseCharacter, MainGameInputs.IPlayerMapActions
     {
         if (context.phase == InputActionPhase.Performed && LightManThiefSingleton.GameplayIsRunning)
             playerWhip.UseWhip(transform);
+    }
+
+    #endregion
+
+    #region Inner Methods
+
+    private IEnumerator SetFlashBombCooldown()
+    {
+        actualFlashBombCooldown = coolDownMaxTime;
+        while(actualFlashBombCooldown > 0)
+        {
+            yield return new WaitForSeconds(1);
+            actualFlashBombCooldown--;
+        }
     }
 
     #endregion

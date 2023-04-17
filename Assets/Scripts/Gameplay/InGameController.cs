@@ -64,7 +64,7 @@ public class InGameController : BASESingleton<InGameController>
     public void SetFlashLightAttack(Vector3 lightAttackPosition)
     {
         Instance.uiController.OnUsedFlashBomb();
-        Instance.actualLevelController.ActivateLightAttack(lightAttackPosition, () => { Instance.playerController.canUseFlashBombs = true; });
+        Instance.actualLevelController.ActivateLightAttack(lightAttackPosition, () => {  });
     }
 
     public void SetNewLightState(bool setPlayerLightDetected)

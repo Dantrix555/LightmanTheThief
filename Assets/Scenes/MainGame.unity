@@ -6548,6 +6548,7 @@ MonoBehaviour:
   characterRigidbody: {fileID: 1643440141}
   characterAnimator: {fileID: 217364674}
   playerWhip: {fileID: 2138773708}
+  coolDownMaxTime: 1
   canUseFlashBombs: 0
 --- !u!114 &1643440143
 MonoBehaviour:

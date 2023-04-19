@@ -125,14 +125,12 @@ public class BribeHUD : MonoBehaviour, IPanel
     {
         if (actualDialogLineIndex >= actualDialogLineLength - 1 || closeBeforeEndingLines)
         {
-            Debug.LogError("Dialog finished");
             ClosePanel();
             return;
         }
 
         if (actualDialogLineIndex >= 0 && actualDialogLine.LineHasResponses() && !actualDialogLine.IsACharacterDialog)
         {
-            Debug.LogError("Showing response");
             actualDialogText.text = hasNegativeResponse ? actualDialogLine.NegativeDialogResponse : actualDialogLine.AffirmativeDialogRespone;
             cancelButton.transform.parent.gameObject.SetActive(false);
             //dialogHasBeenResponded = true;
@@ -146,7 +144,6 @@ public class BribeHUD : MonoBehaviour, IPanel
         actualDialogText.text = actualDialogLine.LineDialog;
         actualCharacterUIImage.sprite = actualDialogLine.CharacterDialogSprite;
         cancelButton.transform.parent.gameObject.SetActive(actualDialogLine.LineHasResponses());
-        Debug.LogError("Normal dialog");
     }
 
     private void OnAccept()

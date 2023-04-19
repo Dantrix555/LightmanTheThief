@@ -16,9 +16,14 @@ public class Interactor : MonoBehaviour
     private LayerMask interactableLayer;
 
     [HideInInspector]
-    protected float detectionRadius = BASE_DETECTION_RADIUS;
+    protected float scanRadius = BASE_DETECTION_RADIUS;
     [HideInInspector]
     protected float detectionLinearDistance = BASE_LINEAL_DETECTION_DISTANCE;
+
+    private Collider2D[] collidersAroundDetectedList = new Collider2D[10];
+    private Collider2D[] collidersInFrontDetectedList = new Collider2D[10];
+    private int collidersAroundDetected;
+    private int collidersInFrontDetected;
 
     #endregion
 
@@ -29,13 +34,19 @@ public class Interactor : MonoBehaviour
     /// </summary>
     public void DetectInteractablesAround()
     {
-        Collider2D[] collidersDetected = Physics2D.OverlapCircleAll(transform.position, detectionRadius, interactableLayer);
+        collidersAroundDetected = Physics2D.OverlapCircleNonAlloc(transform.position, scanRadius, collidersAroundDetectedList, interactableLayer);
 
-        foreach (Collider2D item in collidersDetected)
+        if (collidersAroundDetected <= 0)
+            return;
+
+        for(int i = 0; i < collidersAroundDetected; i++)
         {
-            if(item.TryGetComponent(out Interactable newInteractable))
+            if(collidersAroundDetectedList[i].gameObject != gameObject)
             {
-                newInteractable.OnInteractorDetected(this);
+                if (collidersAroundDetectedList[i].TryGetComponent(out Interactable newInteractable))
+                {
+                    newInteractable.OnInteractorDetected(this);
+                }
             }
         }
     }
@@ -46,13 +57,19 @@ public class Interactor : MonoBehaviour
     public void DetectInteractablesInFront(Vector3 raycastDirection)
     {
         Vector3 boxColliderSize = Mathf.Abs(raycastDirection.x) > Mathf.Abs(raycastDirection.y) ? new Vector3(detectionLinearDistance, detectionLinearDistance) : new Vector3(detectionLinearDistance, detectionLinearDistance);
-        Collider2D[] collidersDetected = Physics2D.OverlapBoxAll(transform.position + raycastDirection.normalized, boxColliderSize, interactableLayer);
+        collidersInFrontDetected = Physics2D.OverlapBoxNonAlloc(transform.position + raycastDirection.normalized, boxColliderSize, 0, collidersInFrontDetectedList, interactableLayer);
 
-        foreach (Collider2D item in collidersDetected)
+        if (collidersInFrontDetected <= 0)
+            return;
+
+        for (int i = 0; i < collidersInFrontDetected; i++)
         {
-            if (item.TryGetComponent(out Interactable newInteractable))
+            if (collidersInFrontDetectedList[i].gameObject != gameObject)
             {
-                newInteractable.OnInteractorDetected(this);
+                if (collidersInFrontDetectedList[i].TryGetComponent(out Interactable newInteractable))
+                {
+                    newInteractable.OnInteractorDetected(this);
+                }
             }
         }
     }

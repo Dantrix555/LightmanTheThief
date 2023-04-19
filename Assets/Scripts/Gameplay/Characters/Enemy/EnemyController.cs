@@ -92,7 +92,7 @@ public class EnemyController : BaseCharacter
         enemyLanternLight.color = baseEnemyStats.LanternColor;
         detectionLinearDistance = enemyLanternLight.pointLightDistance;
         actualCharacterSpeed = baseEnemyStats.CharacterBaseSpeed;
-        detectionRadius = characterStatsData.CharacterDetectionRadius;
+        scanRadius = characterStatsData.CharacterDetectionRadius;
 
         foreach (Transform point in enemyMovePaternPoints)
             enemyMovePaternPointsPositions.Add(point.position);
@@ -231,7 +231,7 @@ public class EnemyController : BaseCharacter
     {
         if(!enemyIsDefeated)
         {
-            while (Vector3.Distance(transform.position, playerTransform.position) <= detectionRadius + 5f)
+            while (Vector3.Distance(transform.position, playerTransform.position) <= scanRadius + 5f)
             {
                 seeker.StartPath(transform.position, playerTransform.position, OnPathComplete);
                 yield return new WaitForSeconds(0.5f);

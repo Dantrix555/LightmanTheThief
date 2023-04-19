@@ -70,7 +70,7 @@ public class PlayerController : BaseCharacter, MainGameInputs.IPlayerMapActions
     {
         playerStats = characterStatsData as PlayerStats;
         actualCharacterSpeed = playerStats.CharacterBaseSpeed;
-        detectionRadius = characterStatsData.CharacterDetectionRadius;
+        scanRadius = characterStatsData.CharacterDetectionRadius;
 
         playerWhip.SetupInteractable();
     }
